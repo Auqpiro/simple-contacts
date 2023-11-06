@@ -1,0 +1,17 @@
+{
+  "name": "simple-contacts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build --prefix client",
+    "server": "json-server -w server/db.json -p 5001",
+    "postinstall": "cd client && npm ci"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}
