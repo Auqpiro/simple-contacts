@@ -1,33 +1,35 @@
-import actions from "./index";
 import axios from "axios";
-import {routes} from "../../api/routes";
+import * as routes from "../../api/routes";
+import * as actions from "./index";
+import {Thunk} from "../../type";
 
-export const fetchContacts = () => async (dispatch) => {
-    const { data } = await axios.get(routes.contacts);
+export const fetchContacts = (): Thunk => async (dispatch) => {
+    const {data} = await axios.get(routes.contacts);
     dispatch({
-        type: actions.fetch,
+        type: actions.CONTACTS_FETCH,
         payload: data,
     });
 };
 
+/*
 export const addContacts = () => async (dispatch) => {
-
-    dispatch({
+    return dispatch({
         type: actions.add,
         payload: [],
     });
 };
 
 export const editContacts = () => async (dispatch) => {
-    dispatch({
+    return dispatch({
         type: actions.edit,
         payload: [],
     });
 };
 
 export const deleteContacts = () => async (dispatch) => {
-    dispatch({
+    return dispatch({
         type: actions.delete,
         payload: [],
     });
 };
+*/

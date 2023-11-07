@@ -1,17 +1,20 @@
-import actions from "../actions";
+import * as actions from "../actions/index";
+import {ContactsState, Actions} from "../../type";
 
-const initialState = [];
+const initialState: ContactsState = {
+    contacts: []
+};
 
-export const contactsReducer = (state = initialState, { type, payload }) => {
+export const contactsReducer = (state = initialState, { type, payload }: Actions): ContactsState => {
     switch (type) {
-        case actions.fetch:
-            return state;
-        case actions.add:
-            return state;
-        case actions.edit:
-            return state;
-        case actions.delete:
-            return state;
+        case actions.CONTACTS_FETCH:
+            return { ...state, contacts: [...state.contacts, ...payload] };
+        // case actions.add:
+        //     return state;
+        // case actions.edit:
+        //     return state;
+        // case actions.delete:
+        //     return state;
         default:
             return state;
     }

@@ -1,5 +1,3 @@
-export const routes = {
-    contacts: "/contacts",
-    add: "/add",
-    edit: (id) => `/edit/${id}`,
-};
+export const contacts = "/contacts";
+export const add = "/add";
+export const edit = "/edit";

@@ -1,10 +1,4 @@
-export * as contactActions from "./contactActions";
-
-const actions = {
-    fetch: "CONTACTS_FETCH",
-    edit: "CONTACTS_EDIT",
-    add: "CONTACTS_ADD",
-    delete: "CONTACTS_DELETE"
-};
-
-export default actions;
+export const CONTACTS_FETCH = "CONTACTS_FETCH";
+// export const CONTACTS_EDIT = "CONTACTS_EDIT";
+// export const CONTACTS_ADD = "CONTACTS_ADD";
+// export const CONTACTS_DELETE = "CONTACTS_DELETE";
