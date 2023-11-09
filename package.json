@@ -7,7 +7,7 @@
     "build": "npm run build --prefix client",
     "server": "json-server -w server/db.json -p 5001",
     "client": "npm run start --prefix client",
-    "start": "npm run server && npm start",
+    "dev": "npm run server & npm run client",
     "postinstall": "cd client && npm ci"
   },
   "keywords": [],

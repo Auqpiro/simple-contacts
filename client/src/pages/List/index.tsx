@@ -4,20 +4,27 @@ import {IContact, State} from "../../type";
 import {useEffect} from "react";
 import {Dispatch} from "redux";
 import {fetchContacts} from "../../store/actions/contactActions";
-import Contact from "../../components/Contact";
+import ContactItem from "../../components/ContactItem";
+import {useNavigate} from "react-router-dom";
+import * as routes from "../../api/routes";
 
 function List() {
-    const contacts: IContact[] = useSelector((state: State) => state.contacts.contacts, shallowEqual);
+    const navigate = useNavigate();
+    const contacts: IContact[] = useSelector((state: State) => state.contacts.entity, shallowEqual);
     const dispatch: Dispatch<any> = useDispatch();
     useEffect(() => {
         dispatch(fetchContacts());
-    }, []);
-    const contactsList = contacts.length && contacts.map(contact => (
-       <Contact contact={contact} key={contact.id}/>
-    ));
+    }, [dispatch]);
+    const onAdd = () => {
+        console.log("ADD");
+        navigate(routes.add);
+    };
+    const contactsList = contacts.length
+        ? (contacts.map((contact) => (<ContactItem key={contact.id} contact={contact}/>)))
+        : (<p>Contacts not found</p>);
     return (
         <div>
-            List
+            <button onClick={onAdd}>ADD</button>
             {contactsList}
         </div>
     )

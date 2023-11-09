@@ -1,17 +1,23 @@
 import React from 'react';
 import './app.module.scss';
-import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider} from "react-router-dom";
 import Layout from "../components/Layout";
 import List from "./List";
 import Add from "./Add";
 import Edit from "./Edit";
-import NotFound from "./NotFound";
+import Contact from "./Contact";
+import NotFound from "./Notfound";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout/>}>
         <Route index element={<List/>}/>
         <Route path="add" element={<Add/>}/>
-        <Route path="edit/:id" element={<Edit/>}/>
+        <Route path="contacts" element={<Outlet/>}>
+            <Route path=":id" element={<Outlet/>}>
+                <Route index element={<Contact/>}/>
+                <Route path="edit" element={<Edit/>}/>
+            </Route>
+        </Route>
         <Route path="*" element={<NotFound/>}/>
     </Route>
 ));

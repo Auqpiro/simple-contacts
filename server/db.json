@@ -1,16 +1,3 @@
 {
-  "contacts": [
-    {
-      "id": 0,
-      "name": "Name",
-      "phone": 123,
-      "email": "qwe@asd.zxc"
-    },
-    {
-      "id": 0,
-      "name": "Name",
-      "phone": 456,
-      "email": "rty@fgh.vbn"
-    }
-  ]
+  "contacts": []
 }

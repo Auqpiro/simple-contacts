@@ -5,12 +5,13 @@ import {Store} from "redux";
 interface IContact {
     "id": number
     "name": string
-    "phone": number
+    "phone": string
     "email": string
 }
 
 type ContactsState = {
-    contacts: IContact[]
+    entity: IContact[]
+    selected: null | IContact
 }
 
 type Reducer = typeof reducer
@@ -18,12 +19,32 @@ type Reducer = typeof reducer
 type State = ReturnType<Reducer>
 
 type FetchAction = {
-    type: string
+    type: "CONTACTS_FETCH"
     payload: IContact[]
 }
 
-type Actions = FetchAction
+type AddAction = {
+    type: "CONTACTS_ADD"
+    payload: IContact
+}
 
-type Thunk = ThunkAction<Promise<void>, State, unknown, Actions>
+type EditAction = {
+    type: "CONTACTS_EDIT"
+    payload: IContact
+}
 
-type Storage = Store<State, Actions> & { dispatch: Thunk }
+type DeleteAction = {
+    type: "CONTACTS_DELETE"
+    payload: number
+}
+
+type SelectAction = {
+    type: "CONTACTS_SELECT"
+    payload: IContact
+}
+
+type ThunkActions = FetchAction | AddAction | EditAction | DeleteAction;
+
+type Thunk = ThunkAction<Promise<void>, State, unknown, ThunkActions>
+
+type Storage = Store<State, ThunkActions | SelectAction> & { dispatch: Thunk }

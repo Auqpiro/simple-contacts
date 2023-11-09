@@ -1,13 +1,12 @@
 import {IContact} from "../../type";
 
-interface ContactProps {
+interface ContactDetailsProps {
     contact: IContact
 }
 
-function Contact({contact}: ContactProps) {
+function ContactDetails({contact}: ContactDetailsProps) {
     return (
-        <div>
-            Contact
+        <>
             <div>
                 {contact.name}
             </div>
@@ -17,8 +16,8 @@ function Contact({contact}: ContactProps) {
             <div>
                 {contact.phone}
             </div>
-        </div>
+        </>
     )
 }
 
-export default Contact;
+export default ContactDetails;

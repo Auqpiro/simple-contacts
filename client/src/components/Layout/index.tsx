@@ -1,11 +1,11 @@
-import {Outlet} from "react-router-dom";
-import Message from "../Message";
-
+import {Link, Outlet} from "react-router-dom";
 function Layout() {
     return (
         <div>
-            CONTACTS
-            <Message/>
+            <Link to="/">
+                CONTACT LIST
+            </Link>
+            <hr/>
             <Outlet/>
         </div>
     )
