@@ -1,20 +1,30 @@
-import * as actions from "../actions/index";
-import {ContactsState, Actions} from "../../type";
+import * as actionTypes from "../actions/index";
+import {ContactsState, SelectAction, ThunkActions} from "../../type";
 
 const initialState: ContactsState = {
-    contacts: []
+    entity: [],
+    selected: null,
 };
 
-export const contactsReducer = (state = initialState, { type, payload }: Actions): ContactsState => {
+export const contactsReducer = (state = initialState, { type, payload }: ThunkActions | SelectAction): ContactsState => {
     switch (type) {
-        case actions.CONTACTS_FETCH:
-            return { ...state, contacts: [...state.contacts, ...payload] };
-        // case actions.add:
-        //     return state;
-        // case actions.edit:
-        //     return state;
-        // case actions.delete:
-        //     return state;
+        case actionTypes.CONTACTS_FETCH:
+            return { ...state, entity: payload };
+        case actionTypes.CONTACTS_ADD:
+            return { ...state, entity: [...state.entity, payload] };
+        case actionTypes.CONTACTS_EDIT:
+            if (!("id" in payload)) return state;
+            const editEntity = state.entity.map((contact) => (
+                contact.id === payload.id ? payload : contact
+            ));
+            return { ...state, entity: editEntity };
+        case actionTypes.CONTACTS_DELETE:
+            const filteredEntity = state.entity.filter((contact) => (
+               contact.id !== payload
+            ));
+            return { ...state, entity: filteredEntity };
+        case actionTypes.CONTACTS_SELECT:
+            return {...state, selected: payload};
         default:
             return state;
     }
