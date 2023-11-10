@@ -1,10 +1,10 @@
-import axios from "axios";
 import * as routes from "../../api/routes";
 import * as actionTypes from "./index";
 import {IContact, SelectAction, Thunk} from "../../type";
+import api from "../../api";
 
 export const fetchContacts = (): Thunk => async (dispatch) => {
-    const {data} = await axios.get(routes.contacts);
+    const {data} = await api.get(routes.contacts);
     console.log("FETCH", data);
     dispatch({
         type: actionTypes.CONTACTS_FETCH,
@@ -13,7 +13,7 @@ export const fetchContacts = (): Thunk => async (dispatch) => {
 };
 
 export const addContacts = (newContact: Omit<IContact, "id">): Thunk => async (dispatch) => {
-    const {data} = await axios.post(routes.contacts, newContact);
+    const {data} = await api.post(routes.contacts, newContact);
     console.log("ADD", data);
     dispatch({
         type: actionTypes.CONTACTS_ADD,
@@ -22,7 +22,7 @@ export const addContacts = (newContact: Omit<IContact, "id">): Thunk => async (d
 };
 
 export const editContacts = (newData: Omit<IContact, "id">, id: number): Thunk => async (dispatch) => {
-    const {data} = await axios.patch(routes.currentContact(id), newData);
+    const {data} = await api.patch(routes.currentContact(id), newData);
     console.log("EDIT", data);
     dispatch({
         type: actionTypes.CONTACTS_EDIT,
@@ -31,7 +31,7 @@ export const editContacts = (newData: Omit<IContact, "id">, id: number): Thunk =
 };
 
 export const deleteContacts = (id: number): Thunk => async (dispatch) => {
-    await axios.delete(routes.currentContact(id));
+    await api.delete(routes.currentContact(id));
     console.log("DELETE", id);
     dispatch({
         type: actionTypes.CONTACTS_DELETE,
