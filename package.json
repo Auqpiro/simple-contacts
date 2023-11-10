@@ -5,15 +5,16 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build --prefix client",
-    "server": "json-server -w server/db.json -p 5001",
+    "server": "json-server -w server/db.json -p 5000",
     "client": "npm run start --prefix client",
-    "dev": "npm run server & npm run client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "postinstall": "cd client && npm ci"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^8.2.2",
     "json-server": "^0.17.4"
   }
 }
