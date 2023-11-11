@@ -7,7 +7,6 @@
     "build": "npm run build --prefix client",
     "server": "json-server -w server/db.json -p 5000",
     "client": "npm run start --prefix client",
-    "start": "node ./server/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "postinstall": "cd client && npm ci"
   },
