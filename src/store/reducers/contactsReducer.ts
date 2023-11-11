@@ -13,11 +13,10 @@ export const contactsReducer = (state = initialState, { type, payload }: ThunkAc
         case actionTypes.CONTACTS_ADD:
             return { ...state, entity: [...state.entity, payload] };
         case actionTypes.CONTACTS_EDIT:
-            if (!("id" in payload)) return state;
             const editEntity = state.entity.map((contact) => (
                 contact.id === payload.id ? payload : contact
             ));
-            return { ...state, entity: editEntity };
+            return { ...state, entity: editEntity, selected: payload };
         case actionTypes.CONTACTS_DELETE:
             const filteredEntity = state.entity.filter((contact) => (
                contact.id !== payload

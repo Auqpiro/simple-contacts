@@ -2,21 +2,17 @@ import {IContact} from "../../type";
 import {useForm} from "react-hook-form";
 import {useEffect} from "react";
 
-type FormValues = {
-    "name": string;
-    "phone": string;
-    "email": string;
-};
+type FormValues = Omit<IContact, "id">;
 
 interface AddFormProps {
     mode: "add"
-    onSubmit: (contact: FormValues) => void
+    onSubmit: (formData: FormValues) => void
 }
 
 interface EditFormProps {
     mode: "edit"
     selected: IContact
-    onSubmit: (contact: FormValues) => void
+    onSubmit: (formData: FormValues) => void
 }
 
 type FormProps = AddFormProps | EditFormProps;
@@ -34,10 +30,13 @@ function ContactForm(props: FormProps) {
     } = useForm<FormValues>({
         mode: "onChange",
     });
+
     useEffect(() => {
         setFocus("name");
     }, [setFocus]);
+
     const canSubmit: boolean = ("selected" in props) ? !(isValid && isDirty) : !isValid;
+
     return (
         <form onSubmit={handleSubmit(props.onSubmit)}>
             <div>

@@ -1,7 +1,7 @@
 import './list.module.scss';
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {IContact, State} from "../../type";
-import {useEffect} from "react";
+import {useEffect, useMemo} from "react";
 import {Dispatch} from "redux";
 import {fetchContacts} from "../../store/actions/contactActions";
 import ContactItem from "../../components/ContactItem";
@@ -12,16 +12,24 @@ function List() {
     const navigate = useNavigate();
     const contacts: IContact[] = useSelector((state: State) => state.contacts.entity, shallowEqual);
     const dispatch: Dispatch<any> = useDispatch();
+
     useEffect(() => {
         dispatch(fetchContacts());
     }, [dispatch]);
+
     const onAdd = () => {
         console.log("ADD");
         navigate(routes.add);
     };
-    const contactsList = contacts.length
-        ? (contacts.map((contact) => (<ContactItem key={contact.id} contact={contact}/>)))
-        : (<p>Contacts not found</p>);
+
+    const contactsList = useMemo(() => contacts.length
+        ? (contacts.map((contact) => (
+            <ContactItem key={contact.id} contact={contact}/>
+        )))
+        : (<p>Contacts not found</p>),
+    [contacts]
+    );
+
     return (
         <div>
             <button onClick={onAdd}>ADD</button>
