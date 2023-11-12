@@ -1,6 +1,7 @@
 import {IContact} from "../../type";
 import {useForm} from "react-hook-form";
 import {useEffect} from "react";
+import Button from "../Button";
 
 type FormValues = Omit<IContact, "id">;
 
@@ -98,7 +99,15 @@ function ContactForm(props: FormProps) {
                     {errors?.email && <p>{errors.email.message ?? "error"}</p>}
                 </label>
             </div>
-            <button type="submit" disabled={canSubmit}>SUBMIT</button>
+            <Button
+                variant="primary"
+                icon="none"
+                className=""
+                type="submit"
+                disabled={canSubmit}
+            >
+                SUBMIT
+            </Button>
         </form>
     )
 }

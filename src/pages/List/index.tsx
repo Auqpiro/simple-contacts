@@ -7,6 +7,7 @@ import {fetchContacts} from "../../store/actions/contactActions";
 import ContactItem from "../../components/ContactItem";
 import {useNavigate} from "react-router-dom";
 import * as routes from "../../api/routes";
+import Button from "../../components/Button";
 
 function List() {
     const navigate = useNavigate();
@@ -23,16 +24,23 @@ function List() {
     };
 
     const contactsList = useMemo(() => contacts.length
-        ? (contacts.map((contact) => (
-            <ContactItem key={contact.id} contact={contact}/>
-        )))
-        : (<p>Contacts not found</p>),
-    [contacts]
+            ? (contacts.map((contact) => (
+                <ContactItem key={contact.id} contact={contact}/>
+            )))
+            : (<p>Contacts not found</p>),
+        [contacts]
     );
 
     return (
         <div>
-            <button onClick={onAdd}>ADD</button>
+            <Button
+                variant="primary"
+                icon="add"
+                className=""
+                onClick={onAdd}
+            >
+                ADD
+            </Button>
             {contactsList}
         </div>
     )

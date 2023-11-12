@@ -9,6 +9,10 @@ interface IContact {
     "email": string
 }
 
+type IconRef = "none" | "add" | "edit" | "delete" | "back";
+
+type ButtonRef = "success" | "danger" | "warning" | "primary";
+
 type ContactsState = {
     entity: IContact[]
     selected: null | IContact

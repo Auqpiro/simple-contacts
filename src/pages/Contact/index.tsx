@@ -6,6 +6,7 @@ import NotFound from "../Notfound";
 import * as routes from "../../api/routes";
 import {Dispatch} from "redux";
 import {deleteContacts} from "../../store/actions/contactActions";
+import Button from "../../components/Button";
 
 function Contact() {
     const navigate = useNavigate();
@@ -32,9 +33,30 @@ function Contact() {
 
     return (
         <div>
-            <button onClick={onBack}>BACK</button>
-            <button onClick={onEdit}>EDIT</button>
-            <button onClick={onDel}>DEL</button>
+            <Button
+                variant="primary"
+                icon="back"
+                className=""
+                onClick={onBack}
+            >
+                BACK
+            </Button>
+            <Button
+                variant="primary"
+                icon="edit"
+                className=""
+                onClick={onEdit}
+            >
+                EDIT
+            </Button>
+            <Button
+                variant="primary"
+                icon="delete"
+                className=""
+                onClick={onDel}
+            >
+                DEL
+            </Button>
             <ContactDetails contact={contact}/>
         </div>
     )

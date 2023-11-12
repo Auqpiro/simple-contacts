@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {Dispatch} from "redux";
 import {addContacts} from "../../store/actions/contactActions";
+import Button from "../../components/Button";
 
 function Add() {
     const navigate = useNavigate();
@@ -22,7 +23,14 @@ function Add() {
 
     return (
         <>
-            <button onClick={onBack}>BACK</button>
+            <Button
+                variant="primary"
+                icon="back"
+                className=""
+                onClick={onBack}
+            >
+                BACK
+            </Button>
             Add
             <ContactForm mode="add" onSubmit={onAdd}/>
         </>

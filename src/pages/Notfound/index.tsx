@@ -1,4 +1,5 @@
 import {useNavigate} from "react-router-dom";
+import Button from "../../components/Button";
 
 function NotFound() {
     const navigate = useNavigate();
@@ -8,7 +9,14 @@ function NotFound() {
     };
     return (
         <>
-            <button onClick={onBack}>MAIN</button>
+            <Button
+                variant="primary"
+                icon="none"
+                className=""
+                onClick={onBack}
+            >
+                MAIN
+            </Button>
             404
         </>
     )

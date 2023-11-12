@@ -6,6 +6,7 @@ import NotFound from "../Notfound";
 import * as routes from "../../api/routes";
 import {editContacts} from "../../store/actions/contactActions";
 import {Dispatch} from "redux";
+import Button from "../../components/Button";
 
 function Edit() {
     const navigate = useNavigate();
@@ -27,7 +28,14 @@ function Edit() {
 
     return (
         <>
-            <button onClick={onBack}>BACK</button>
+            <Button
+                variant="primary"
+                icon="back"
+                className=""
+                onClick={onBack}
+            >
+                BACK
+            </Button>
             Edit {contact.id} contact
             <ContactForm mode="edit" onSubmit={onEdit} selected={contact}/>
         </>

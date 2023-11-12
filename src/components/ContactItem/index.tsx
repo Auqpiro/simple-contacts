@@ -5,6 +5,7 @@ import * as routes from "../../api/routes";
 import {Dispatch} from "redux";
 import {useDispatch} from "react-redux";
 import {deleteContacts, selectContacts} from "../../store/actions/contactActions";
+import Button from "../Button";
 
 interface ContactItemProps {
     contact: IContact
@@ -38,8 +39,22 @@ function ContactItem({contact}: ContactItemProps) {
             >
                 {contact.name}
             </Link>
-            <button onClick={onEdit}>EDIT</button>
-            <button onClick={onDel}>DEL</button>
+            <Button
+                variant="primary"
+                icon="edit"
+                className=""
+                onClick={onEdit}
+            >
+                EDIT
+            </Button>
+            <Button
+                variant="primary"
+                icon="delete"
+                className=""
+                onClick={onDel}
+            >
+                DEL
+            </Button>
         </div>
     )
 }
