@@ -1,5 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import Button from "../../components/Button";
+import ControlPanel from "../../components/ControlPanel";
+import { GoHome } from "react-icons/go";
 
 function NotFound() {
     const navigate = useNavigate();
@@ -9,13 +11,18 @@ function NotFound() {
     };
     return (
         <>
-            <Button
-                variant="primary"
-                onClick={onBack}
-            >
-                MAIN
-            </Button>
-            404
+            <ControlPanel>
+                <Button
+                    variant="primary"
+                    onClick={onBack}
+                >
+                    <GoHome/>
+                    MAIN
+                </Button>
+            </ControlPanel>
+            <div>
+                404 NOT FOUND
+            </div>
         </>
     )
 }

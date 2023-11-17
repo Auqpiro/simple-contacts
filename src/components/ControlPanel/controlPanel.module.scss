@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+.controls {
+  padding-left: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  box-shadow: 0 1px 3px map-get($colors, "secondary");
+
+  button {
+    margin: 5px 10px 5px 0;
+  }
+}

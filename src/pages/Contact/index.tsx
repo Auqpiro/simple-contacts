@@ -10,6 +10,7 @@ import Button from "../../components/Button";
 import { IoChevronBack } from "react-icons/io5";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FaRegEdit } from "react-icons/fa";
+import ControlPanel from "../../components/ControlPanel";
 
 function Contact() {
     const navigate = useNavigate();
@@ -35,30 +36,32 @@ function Contact() {
     };
 
     return (
-        <div>
-            <Button
-                variant="primary"
-                onClick={onBack}
-            >
-                <IoChevronBack/>
-                BACK
-            </Button>
-            <Button
-                variant="warning"
-                onClick={onEdit}
-            >
-                <FaRegEdit/>
-                EDIT
-            </Button>
-            <Button
-                variant="danger"
-                onClick={onDel}
-            >
-                <AiOutlineDelete/>
-                DEL
-            </Button>
+        <>
+            <ControlPanel>
+                <Button
+                    variant="primary"
+                    onClick={onBack}
+                >
+                    <IoChevronBack/>
+                    BACK
+                </Button>
+                <Button
+                    variant="warning"
+                    onClick={onEdit}
+                >
+                    <FaRegEdit/>
+                    EDIT
+                </Button>
+                <Button
+                    variant="danger"
+                    onClick={onDel}
+                >
+                    <AiOutlineDelete/>
+                    DEL
+                </Button>
+            </ControlPanel>
             <ContactDetails contact={contact}/>
-        </div>
+        </>
     )
 }
 

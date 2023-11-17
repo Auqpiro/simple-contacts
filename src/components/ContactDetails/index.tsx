@@ -6,7 +6,7 @@ interface ContactDetailsProps {
 
 function ContactDetails({contact}: ContactDetailsProps) {
     return (
-        <>
+        <div>
             <div>
                 {contact.name}
             </div>
@@ -16,7 +16,7 @@ function ContactDetails({contact}: ContactDetailsProps) {
             <div>
                 {contact.phone}
             </div>
-        </>
+        </div>
     )
 }
 

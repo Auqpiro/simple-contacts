@@ -4,17 +4,27 @@
   container-type: inline-size;
   height: 100vh;
   width: 100vw;
+
+  nav {
+    height: min(3rem, max(10cqw, 2rem));
+    background: rgba(map-get($colors, "primary"), 0.6);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 20px map-get($colors, "secondary");
+
+    .logo {
+      padding-left: 20px;
+      color: azure;
+      font-size: min(2rem, max(5cqw, 1rem));
+      cursor: pointer;
+    }
+  }
+
+  main {
+    width: 100vw;
+    font-size: min(1rem, max(3cqw, 0.5rem));
+  }
 }
 
-//nav {
-//  height: 10cqw;
-//  max-height: 50px;
-//  background: rgba(map-get($colors, "primary"), 0.5);
-//  color: #FFF;
-//  text-align: center;
-//  position: fixed;
-//  z-index: 1000;
-//  width: 100%;
-//  font-size: 5cqw;
-//  box-shadow: 0 3px 10px map-get($colors, "secondary");
-//}
+

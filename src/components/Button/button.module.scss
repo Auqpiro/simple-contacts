@@ -2,9 +2,12 @@
 
 .button {
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 2px 10px;
   cursor: pointer;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @each $name, $value in $colors {
     &.button_#{$name} {
@@ -15,5 +18,9 @@
         background-color: rgba($value, 0.1);
       }
     }
+  }
+
+  svg {
+    margin-right: 0.2em;
   }
 }

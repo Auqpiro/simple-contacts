@@ -8,6 +8,7 @@ import {editContacts} from "../../store/actions/contactActions";
 import {Dispatch} from "redux";
 import Button from "../../components/Button";
 import { IoChevronBack } from "react-icons/io5";
+import ControlPanel from "../../components/ControlPanel";
 
 function Edit() {
     const navigate = useNavigate();
@@ -29,14 +30,18 @@ function Edit() {
 
     return (
         <>
-            <Button
-                variant="primary"
-                onClick={onBack}
-            >
-                <IoChevronBack/>
-                BACK
-            </Button>
-            Edit {contact.id} contact
+            <ControlPanel>
+                <Button
+                    variant="primary"
+                    onClick={onBack}
+                >
+                    <IoChevronBack/>
+                    BACK
+                </Button>
+            </ControlPanel>
+            <div>
+                Edit {contact.name}'s contact
+            </div>
             <ContactForm mode="edit" onSubmit={onEdit} selected={contact}/>
         </>
     )

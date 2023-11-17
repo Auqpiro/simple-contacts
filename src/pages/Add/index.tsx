@@ -6,6 +6,7 @@ import {Dispatch} from "redux";
 import {addContacts} from "../../store/actions/contactActions";
 import Button from "../../components/Button";
 import { IoChevronBack } from "react-icons/io5";
+import ControlPanel from "../../components/ControlPanel";
 
 function Add() {
     const navigate = useNavigate();
@@ -24,14 +25,18 @@ function Add() {
 
     return (
         <>
-            <Button
-                variant="primary"
-                onClick={onBack}
-            >
-                <IoChevronBack/>
-                BACK
-            </Button>
-            Add
+            <ControlPanel>
+                <Button
+                    variant="primary"
+                    onClick={onBack}
+                >
+                    <IoChevronBack/>
+                    BACK
+                </Button>
+            </ControlPanel>
+            <div>
+                Add
+            </div>
             <ContactForm mode="add" onSubmit={onAdd}/>
         </>
     )

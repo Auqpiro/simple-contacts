@@ -1,11 +1,11 @@
 import {Link, Outlet} from "react-router-dom";
-import "./layout.module.scss";
+import styles from "./layout.module.scss";
 
 function Layout() {
     return (
-        <div className="container">
+        <div className={styles.container}>
             <nav>
-                <Link to="/">
+                <Link to="/" className={styles.logo}>
                     CONTACT LIST
                 </Link>
             </nav>
