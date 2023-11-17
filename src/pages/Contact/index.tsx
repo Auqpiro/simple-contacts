@@ -7,6 +7,9 @@ import * as routes from "../../api/routes";
 import {Dispatch} from "redux";
 import {deleteContacts} from "../../store/actions/contactActions";
 import Button from "../../components/Button";
+import { IoChevronBack } from "react-icons/io5";
+import { AiOutlineDelete } from "react-icons/ai";
+import { FaRegEdit } from "react-icons/fa";
 
 function Contact() {
     const navigate = useNavigate();
@@ -35,26 +38,23 @@ function Contact() {
         <div>
             <Button
                 variant="primary"
-                icon="back"
-                className=""
                 onClick={onBack}
             >
+                <IoChevronBack/>
                 BACK
             </Button>
             <Button
-                variant="primary"
-                icon="edit"
-                className=""
+                variant="warning"
                 onClick={onEdit}
             >
+                <FaRegEdit/>
                 EDIT
             </Button>
             <Button
-                variant="primary"
-                icon="delete"
-                className=""
+                variant="danger"
                 onClick={onDel}
             >
+                <AiOutlineDelete/>
                 DEL
             </Button>
             <ContactDetails contact={contact}/>

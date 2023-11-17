@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {Dispatch} from "redux";
 import {addContacts} from "../../store/actions/contactActions";
 import Button from "../../components/Button";
+import { IoChevronBack } from "react-icons/io5";
 
 function Add() {
     const navigate = useNavigate();
@@ -25,10 +26,9 @@ function Add() {
         <>
             <Button
                 variant="primary"
-                icon="back"
-                className=""
                 onClick={onBack}
             >
+                <IoChevronBack/>
                 BACK
             </Button>
             Add

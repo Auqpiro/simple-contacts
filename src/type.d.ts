@@ -1,3 +1,4 @@
+/// <reference types="react-scripts" />
 import {ThunkAction} from "redux-thunk";
 import reducer from "./store/reducers";
 import {Store} from "redux";
@@ -9,9 +10,9 @@ interface IContact {
     "email": string
 }
 
-type IconRef = "none" | "add" | "edit" | "delete" | "back";
+type IconRef = "none" | "add" | "edit" | "del" | "back";
 
-type ButtonRef = "success" | "danger" | "warning" | "primary";
+type ButtonRef = "danger" | "warning" | "primary" | "secondary";
 
 type ContactsState = {
     entity: IContact[]

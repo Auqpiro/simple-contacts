@@ -8,6 +8,9 @@ import ContactItem from "../../components/ContactItem";
 import {useNavigate} from "react-router-dom";
 import * as routes from "../../api/routes";
 import Button from "../../components/Button";
+import * as Grid from "../../components/Grid/index";
+import styles from "./list.module.scss";
+import { MdAddCircleOutline } from "react-icons/md";
 
 function List() {
     const navigate = useNavigate();
@@ -25,23 +28,26 @@ function List() {
 
     const contactsList = useMemo(() => contacts.length
             ? (contacts.map((contact) => (
-                <ContactItem key={contact.id} contact={contact}/>
+                <Grid.Item sm={12} md={4} lg={2} key={contact.id}>
+                    <ContactItem contact={contact}/>
+                </Grid.Item>
             )))
             : (<p>Contacts not found</p>),
         [contacts]
     );
 
     return (
-        <div>
+        <div className={styles.list}>
             <Button
                 variant="primary"
-                icon="add"
-                className=""
                 onClick={onAdd}
             >
+                <MdAddCircleOutline/>
                 ADD
             </Button>
-            {contactsList}
+            <Grid.Container spacing="md" alignItems="flex-start" justifyContent="flex-start">
+                {contactsList}
+            </Grid.Container>
         </div>
     )
 }

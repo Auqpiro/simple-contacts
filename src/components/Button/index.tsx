@@ -1,17 +1,20 @@
 import {ComponentPropsWithRef} from "react";
-import {ButtonRef, IconRef} from "../../type";
-import SVG from "../../assets/svg";
+import {ButtonRef} from "../../type";
+import cn from "classnames";
+import styles from "./button.module.scss";
 
 interface ButtonProps extends ComponentPropsWithRef<"button"> {
     variant: ButtonRef
-    icon: IconRef
-    className: string
 }
 
-function Button({variant, icon, className, onClick, children, ...props}: ButtonProps) {
+function Button({variant, children, ...props}: ButtonProps) {
     return (
-        <button className={variant} onClick={onClick} {...props}>
-            <SVG icon={icon} className={className}/>
+        <button
+            className={cn(styles.button, {
+                [styles[`button_${variant}`]]: variant,
+            })}
+            {...props}
+        >
             {children}
         </button>
     )

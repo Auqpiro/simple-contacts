@@ -7,6 +7,7 @@ import * as routes from "../../api/routes";
 import {editContacts} from "../../store/actions/contactActions";
 import {Dispatch} from "redux";
 import Button from "../../components/Button";
+import { IoChevronBack } from "react-icons/io5";
 
 function Edit() {
     const navigate = useNavigate();
@@ -30,10 +31,9 @@ function Edit() {
         <>
             <Button
                 variant="primary"
-                icon="back"
-                className=""
                 onClick={onBack}
             >
+                <IoChevronBack/>
                 BACK
             </Button>
             Edit {contact.id} contact

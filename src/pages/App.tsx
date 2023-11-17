@@ -1,5 +1,4 @@
 import React from 'react';
-import './app.module.scss';
 import {createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider} from "react-router-dom";
 import Layout from "../components/Layout";
 import List from "./List";

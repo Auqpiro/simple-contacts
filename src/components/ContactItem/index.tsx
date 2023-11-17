@@ -6,6 +6,9 @@ import {Dispatch} from "redux";
 import {useDispatch} from "react-redux";
 import {deleteContacts, selectContacts} from "../../store/actions/contactActions";
 import Button from "../Button";
+import styles from "./contactItem.module.scss";
+import { FaRegEdit } from "react-icons/fa";
+import { AiOutlineDelete } from "react-icons/ai";
 
 interface ContactItemProps {
     contact: IContact
@@ -32,7 +35,7 @@ function ContactItem({contact}: ContactItemProps) {
     }, [contact, dispatch]);
 
     return (
-        <div>
+        <div className={styles.contact_item}>
             <Link
                 to={routes.currentContact(contact.id)}
                 onClick={onCheck}
@@ -40,19 +43,17 @@ function ContactItem({contact}: ContactItemProps) {
                 {contact.name}
             </Link>
             <Button
-                variant="primary"
-                icon="edit"
-                className=""
+                variant="warning"
                 onClick={onEdit}
             >
+                <FaRegEdit/>
                 EDIT
             </Button>
             <Button
-                variant="primary"
-                icon="delete"
-                className=""
+                variant="danger"
                 onClick={onDel}
             >
+                <AiOutlineDelete/>
                 DEL
             </Button>
         </div>

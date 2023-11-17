@@ -100,9 +100,7 @@ function ContactForm(props: FormProps) {
                 </label>
             </div>
             <Button
-                variant="primary"
-                icon="none"
-                className=""
+                variant={!canSubmit ? "primary" : "secondary"}
                 type="submit"
                 disabled={canSubmit}
             >

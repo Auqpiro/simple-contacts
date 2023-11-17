@@ -11,8 +11,6 @@ function NotFound() {
         <>
             <Button
                 variant="primary"
-                icon="none"
-                className=""
                 onClick={onBack}
             >
                 MAIN

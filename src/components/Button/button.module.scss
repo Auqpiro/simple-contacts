@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.button {
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: white;
+
+  @each $name, $value in $colors {
+    &.button_#{$name} {
+      border: 1px solid rgba($value, 0.5);
+      color: $value;
+
+      &:hover {
+        background-color: rgba($value, 0.1);
+      }
+    }
+  }
+}
