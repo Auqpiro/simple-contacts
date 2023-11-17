@@ -1,9 +1,139 @@
+@import "../../styles/variables.scss";
+
 .contact_item {
   padding: 16px;
   border-radius: 4px;
-  text-align: center;
-  color: #ede9f9;
-  font-weight: 700;
-  background-color: rgba(240, 240, 240, 1);
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(map-get($colors, "secondary"), 0.5);
+  box-shadow: 0 2px 2px rgba(map-get($colors, "secondary"), 0.5);
+  display: grid;
+  grid-template-columns: 10% 1fr 40px;
+  grid-template-areas: "img name name";
+  grid-gap: 0.5cqw;
+  align-items: center;
+  height: 80px;
+
+  .img {
+    grid-area: img;
+    justify-self: center;
+
+    & svg {
+      color: rgba(map-get($colors, "primary"), 0.5);
+      width: min(2rem, max(7cqw, 1rem));
+      height: min(2rem, max(7cqw, 1rem));
+    }
+  }
+
+  .name {
+    grid-area: name;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: min(2rem, max(5cqw, 1rem));
+    padding-left: 10px;
+  }
+
+  .controls {
+    display: none;
+  }
+
+  &:hover {
+    grid-template-areas: "img name controls";
+
+    .controls {
+      display: flex;
+      flex-flow: column wrap;
+      grid-area: controls;
+
+      button {
+        margin-bottom: 5px;
+        font-size: min(2rem, max(5cqw, 1rem));
+      }
+    }
+  }
+}
+
+@media screen and (min-width: map-get($breakpoints, "md")) {
+  .contact_item {
+    padding: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 30px;
+    grid-template-areas: "img" "name";
+    grid-gap: .25cqw;
+    height: 150px;
+
+    .img {
+
+      & svg {
+        width: min(7rem, max(10cqw, 5rem));
+        height: min(7rem, max(10cqw, 5rem));
+      }
+    }
+
+    .name {
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: min(1rem, max(5cqw, .5rem));
+      padding-left: 0;
+    }
+
+    .controls {
+      display: none;
+    }
+
+    &:hover {
+      grid-template-areas: "img" "controls";
+
+      .name {
+        display: none;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        grid-area: controls;
+
+        button {
+          margin-bottom: 0;
+          font-size: min(1rem, max(3cqw, .5rem));
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: map-get($breakpoints, "lg")) {
+  .contact_item {
+    padding: 10px;
+    grid-template-rows: 1fr 4cqw;
+
+    .img {
+
+      & svg {
+        width: min(5rem, max(5cqw, 3rem));
+        height: min(5rem, max(5cqw, 3rem));
+      }
+    }
+
+    .name {
+      white-space: normal;
+      font-size: min(1rem, max(5cqw, .5rem));
+    }
+
+    &:hover {
+
+      .controls {
+        align-items: center;
+        flex-flow: row wrap;
+        grid-area: controls;
+
+        button {
+          margin-bottom: 5px;
+          font-size: min(1rem, max(3cqw, .5rem));
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,8 @@
+@import "../../styles/variables.scss";
+
+.status {
+  padding: 10px 20px;
+  text-align: center;
+  font-size: min(2rem, max(3cqw, 1rem));
+  color: map-get($colors, "secondary");
+}

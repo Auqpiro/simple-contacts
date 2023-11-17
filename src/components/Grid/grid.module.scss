@@ -29,9 +29,6 @@
   }
 
   @each $name, $value in $spacing {
-    //&_spacing_#{$name} {
-    //  margin: -$value;
-    //}
 
     &_spacing_#{$name} > &_item {
       padding: $value;

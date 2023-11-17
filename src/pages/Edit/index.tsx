@@ -9,6 +9,7 @@ import {Dispatch} from "redux";
 import Button from "../../components/Button";
 import { IoChevronBack } from "react-icons/io5";
 import ControlPanel from "../../components/ControlPanel";
+import Status from "../../components/Status";
 
 function Edit() {
     const navigate = useNavigate();
@@ -39,9 +40,9 @@ function Edit() {
                     BACK
                 </Button>
             </ControlPanel>
-            <div>
-                Edit {contact.name}'s contact
-            </div>
+            <Status>
+                Editing {contact.name}'s contact
+            </Status>
             <ContactForm mode="edit" onSubmit={onEdit} selected={contact}/>
         </>
     )

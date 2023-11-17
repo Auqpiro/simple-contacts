@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+
+  .status {
+    font-size: min(15rem, max(15cqw, 5rem));
+    color: rgba(map-get($colors, "secondary"), 1);
+  }
+
+  .description {
+    font-size: min(5rem, max(4cqw, 1.5rem));
+    color: rgba(map-get($colors, "primary"), 0.7);
+  }
+}

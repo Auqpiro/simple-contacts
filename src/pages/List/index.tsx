@@ -9,8 +9,9 @@ import {useNavigate} from "react-router-dom";
 import * as routes from "../../api/routes";
 import Button from "../../components/Button";
 import * as Grid from "../../components/Grid/index";
-import { MdAddCircleOutline } from "react-icons/md";
+import {MdAddCircleOutline} from "react-icons/md";
 import ControlPanel from "../../components/ControlPanel";
+import Status from "../../components/Status";
 
 function List() {
     const navigate = useNavigate();
@@ -27,11 +28,12 @@ function List() {
     };
 
     const contactsList = useMemo(() => contacts.length
-            && (contacts.map((contact) => (
+            ? (contacts.map((contact) => (
                 <Grid.Item sm={12} md={4} lg={2} key={contact.id}>
                     <ContactItem contact={contact}/>
                 </Grid.Item>
-            ))),
+            )))
+            : null,
         [contacts]
     );
 
@@ -46,9 +48,9 @@ function List() {
                     ADD
                 </Button>
             </ControlPanel>
-            <div>
+            <Status>
                 {`Contact List have ${contacts.length} item(s)`}
-            </div>
+            </Status>
             <Grid.Container spacing="md" alignItems="flex-start" justifyContent="flex-start">
                 {contactsList}
             </Grid.Container>

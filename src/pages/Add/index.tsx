@@ -7,6 +7,7 @@ import {addContacts} from "../../store/actions/contactActions";
 import Button from "../../components/Button";
 import { IoChevronBack } from "react-icons/io5";
 import ControlPanel from "../../components/ControlPanel";
+import Status from "../../components/Status";
 
 function Add() {
     const navigate = useNavigate();
@@ -34,9 +35,9 @@ function Add() {
                     BACK
                 </Button>
             </ControlPanel>
-            <div>
-                Add
-            </div>
+            <Status>
+                Adding new contact
+            </Status>
             <ContactForm mode="add" onSubmit={onAdd}/>
         </>
     )

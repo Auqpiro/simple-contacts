@@ -6,7 +6,7 @@
   width: 100vw;
 
   nav {
-    height: min(3rem, max(10cqw, 2rem));
+    height: min(5rem, max(10cqw, 3rem));
     background: rgba(map-get($colors, "primary"), 0.6);
     width: 100%;
     display: flex;
@@ -16,7 +16,10 @@
     .logo {
       padding-left: 20px;
       color: azure;
-      font-size: min(2rem, max(5cqw, 1rem));
+      font-size: min(3rem, max(5cqw, 2rem));
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       cursor: pointer;
     }
   }
