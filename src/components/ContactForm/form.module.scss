@@ -1,0 +1,103 @@
+@import "../../styles/variables.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  grid-template-rows: 1fr min-content 1fr;
+  grid-template-areas: ". . ." ". form ." ". . .";
+  height: 65vh;
+
+  .content {
+    grid-area: form;
+    border-radius: 20px;
+    padding: 15px 20px;
+    border: 1px solid map-get($colors, "secondary");
+    box-shadow: 0 2px 2px map-get($colors, "secondary");
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+    button {
+      font-size: min(1rem, max(2cqw, .75rem));
+      margin-top: 10px;
+    }
+
+    fieldset {
+      all: unset;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+
+      legend {
+        text-align: center;
+        color: map-get($colors, "secondary");
+        font-size: min(5rem, max(12cqw, 1rem));
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid map-get($colors, "secondary");
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .form_item {
+        margin-top: 10px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        font-size: min(2rem, max(1cqw, 1rem));
+
+        label {
+          display: none;
+        }
+
+        svg {
+          margin-right: 5px;
+        }
+
+        input {
+          border-radius: .5em;
+          padding: 5px;
+          border: 1px solid rgba(map-get($colors, "primary"), 0.5);
+        }
+      }
+
+      .error_message {
+        text-align: center;
+        height: 10px;
+        margin: 5px auto 5px;
+        font-size: 10px;
+        font-weight: 700;
+        color: map-get($colors, "danger");
+      }
+    }
+  }
+}
+
+@media screen and (min-width: map-get($breakpoints, "md")) {
+  .container {
+    .content {
+      border-radius: 20px;
+      padding: 20px 30px;
+
+      fieldset {
+        .form_item {
+          label {
+            display: inline-block;
+            width: 3em;
+          }
+
+          svg {
+            display: none;
+            margin-right: 5px;
+          }
+
+          input {
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
+}
