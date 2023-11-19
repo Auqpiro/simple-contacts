@@ -1,0 +1,114 @@
+@import "../../styles/variables.scss";
+
+.container {
+  padding: 30px 20px;
+
+  .content {
+    width: 50vw;
+    height: 200px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: 1px solid map-get($colors, "secondary");
+    box-shadow: 0 2px 2px map-get($colors, "secondary");
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: stretch;
+
+    .user_photo {
+      flex-grow: 1;
+      text-align: center;
+      margin-top: 20px;
+      font-size: min(10rem, max(10cqw, 2rem));
+    }
+
+    .user_details {
+      flex-grow: 2;
+      border-left: 2px solid map-get($colors, "secondary");
+      padding: 20px;
+
+      .user_name {
+        font-size: min(3rem, max(3cqw, 1rem));
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      & svg {
+        color: map-get($colors, "primary");
+        margin-right: 10px;
+      }
+
+      .user_phone {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .user_email {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, "lg")) {
+  .container {
+    padding: 30px 20px;
+
+    .content {
+      margin: 0 auto;
+      width: 80vw;
+      height: 300px;
+      flex-flow: column nowrap;
+      align-content: flex-start;
+
+      .user_photo {
+        font-size: min(10rem, max(10cqw, 2rem));
+      }
+
+      .user_details {
+        border-top: 2px solid map-get($colors, "secondary");
+        border-left: none;
+
+        .user_name {
+          font-size: min(3rem, max(5cqw, 1rem));
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        .user_email {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, "md")) {
+  .container {
+    .content {
+      .user_photo {
+        font-size: min(20rem, max(15cqw, 5rem));
+      }
+
+      .user_details {
+        .user_phone {
+          font-size: 10px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        .user_email {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
