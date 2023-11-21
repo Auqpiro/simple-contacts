@@ -27,6 +27,10 @@
       border-left: 2px solid map-get($colors, "secondary");
       padding: 20px;
 
+      p {
+        color: map-get($colors, "secondary");
+      }
+
       .user_name {
         font-size: min(3rem, max(3cqw, 1rem));
         font-weight: 700;

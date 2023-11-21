@@ -21,11 +21,11 @@ function ContactDetails({contact}: ContactDetailsProps) {
                     </div>
                     <div className={styles.user_phone}>
                         <LuPhone/>
-                        {contact.phone ?? "none"}
+                        {contact.phone || <p className={styles.default}>none</p>}
                     </div>
                     <div className={styles.user_email}>
                         <MdOutlineAlternateEmail/>
-                        {contact.email ?? "none"}
+                        {contact.email || <p className={styles.default}>none</p>}
                     </div>
                 </div>
             </div>
