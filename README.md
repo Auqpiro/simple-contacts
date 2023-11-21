@@ -36,7 +36,7 @@ npm run build
 npm run start
 ```
 
-Project uses my own [json-server](https://github.com/Auqpiro/demo-json-api) for API route.
+Project uses my own mock server for API route.
 
 ```bash
 ./src/api/index.ts

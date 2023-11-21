@@ -22,7 +22,7 @@ export const addContacts = (newContact: Omit<IContact, "id">): Thunk => async (d
 };
 
 export const editContacts = (newData: Omit<IContact, "id">, id: number): Thunk => async (dispatch) => {
-    const {data} = await api.patch(routes.currentContact(id), newData);
+    const {data} = await api.put(routes.currentContact(id), newData);
     console.log("EDIT", data);
     dispatch({
         type: actionTypes.CONTACTS_EDIT,
